@@ -22,7 +22,17 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('trip.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
+# NB -> django conrrib auth urls by defaul gives us routes/urls and views for the following
+# accounts/login/ [name='login']
+# accounts/logout/ [name='logout']
+# acounts/password_change/ [name='password_change']
+# accounts/password_change/done/ [name='password_change_done']
+# accounts/password_reset/ [name='password_reset']
+# accounts/password_reset/done/ [name='password_reset_done']
+# accounts/reset/<uiddb64>/<token>/ [name='password_reset_confirm']
+# accounts/reset/done/ [name='password_reset_complete']
 
 
 if settings.DEBUG:

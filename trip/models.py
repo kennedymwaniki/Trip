@@ -13,7 +13,7 @@ class Trip(models.Model):
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=3)
     start_date = models.DateField(blank=True, null=True)
-    end_date = models.DateField()
+    end_date = models.DateField(blank=True, null=True)
     owner = models.ForeignKey(
         User, related_name='trips', on_delete=models.CASCADE)
 
