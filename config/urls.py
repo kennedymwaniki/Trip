@@ -34,6 +34,11 @@ urlpatterns = [
 # accounts/reset/<uiddb64>/<token>/ [name='password_reset_confirm']
 # accounts/reset/done/ [name='password_reset_complete']
 
+# NB -> the include function is used to include other url patterns from other apps
+# NB -> the static function is used to serve media files during development
+# NB -> the settings.DEBUG is used to check if the project is in development mode
+# NB -> the views and urls are provided by the contrib auth but the templates are not
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
