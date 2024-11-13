@@ -3,8 +3,12 @@
 <div class="bg-gray-50 p-8 rounded shadow my-4">
   <p class="text-2xl">{{trip.country}} | {{trip.city}}</p>
   <hr class="my-4" />
-  <a class="px-7 py-2 bg-gray-300 rounded md:mr-4 hover:bg-gray-200">Edit</a>
-  <form class="inline" action="" method="POST">
+  <a
+    class="px-7 py-2 bg-gray-300 rounded md:mr-4 hover:bg-gray-200"
+    href="{% url 'trip-update' trip.pk %}"
+    >Edit</a
+  >
+  <form class="inline" action="{% url 'trip-delete' trip.pk %}" method="POST">
     {% csrf_token %}
     <input
       type="submit"
@@ -15,7 +19,7 @@
   <h3 class="text-xl pb-4">Notes:</h3>
   <div class="flex gap-2 flex-wrap">
     {% for note in notes %}
-    <a>
+    <a href="{% url 'note-detail' note.pk %}">
       <div class="border-2 rounded-lg pb-4 hover:shadow">
         <img
           class="w-48 h-32 object-cover overflow-hidden rounded-t-md"
@@ -27,7 +31,7 @@
       </div>
     </a>
     {% endfor %}
-    <a>
+    <a href="{% url 'note-create' %}">
       <div
         class="border-2 border-dashed rounded-lg hover:shadow w-48 h-48 flex justify-center items-center"
       >

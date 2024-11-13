@@ -15,29 +15,34 @@
         </div>
         <div class="pt-4 w-full text-center">
           <ul class="flex md:flex-col justify-around px-2 md:px-0 pb-2 md:pb-0">
-            <li
-              class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer"
-            >
-              My Trips
-            </li>
-
-            <li
-              class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer"
-            >
-              New Trip +
-            </li>
-
-            <li
-              class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer"
-            >
-              My Notes
-            </li>
-
-            <li
-              class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer"
-            >
-              New Note +
-            </li>
+            <a href="{% url 'trip-list' %}">
+              <li
+                class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer"
+              >
+                My Trips
+              </li>
+            </a>
+            <a href="{% url 'trip-create' %}">
+              <li
+                class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer"
+              >
+                New Trip +
+              </li>
+            </a>
+            <a href="{% url 'note-list' %}">
+              <li
+                class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer"
+              >
+                My Notes
+              </li>
+            </a>
+            <a href="{% url 'note-create' %}">
+              <li
+                class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer"
+              >
+                New Note +
+              </li>
+            </a>
           </ul>
         </div>
         <div
@@ -45,10 +50,7 @@
         >
           <p class="">{{user.username}}</p>
           <hr class="my-2" />
-          <form method="POST" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="underline">Logout</button>
-          </form>
+          <a class="underline" href="{% url 'logout' %}"> Logout </a>
         </div>
       </div>
       <div class="w-full md:w-full p-10 overflow-auto">
