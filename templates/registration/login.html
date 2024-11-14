@@ -1,4 +1,4 @@
-{% if form.errors %}
+{% load tailwind_filters %} {% if form.errors %}
 <p>You have entered an incorrect username or password</p>
 {% endif %} {% if next %} {% if not user.is_authenticated %}
 

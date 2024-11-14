@@ -26,7 +26,7 @@ class TripCreateView(CreateView):
     # this will get triggered whenever the form is submitted
 
     def form_valid(self, form):
-        # owner == logged in owner
+        # owner == logged in user
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
@@ -40,6 +40,7 @@ class TripDetailView(DetailView):
         trip = context["object"]
         notes = trip.notes.all()
         context['notes'] = notes
+        return context
 
 
 class TripUpdateView(UpdateView):
@@ -58,6 +59,10 @@ class TripDeleteView(DeleteView):
 
 class NoteListView(ListView):
     model = Note
+
+    def get_queryset(self):
+        queryset = Note.objects.filter(trip__owner=self.request.user)
+        return queryset
 
 
 class NoteDetailView(DetailView):

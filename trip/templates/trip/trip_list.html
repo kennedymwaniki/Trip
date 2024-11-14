@@ -8,8 +8,8 @@
     <p class="text-lg">{{trip.country}} | {{trip.city}}</p>
     <p class="text-sm pt-4">
       {% if trip.start_date %} {{ trip.start_date|date:"F jS" }} {% else %} TBA
-      {% endif %} to {% if trip.end_date %} {{ trip.end_date|date:"F jS" }} {%
-      else %} TBA {% endif %}
+      <!-- prettier-ignore -->
+      {% endif %} to {% if trip.end_date %} {{ trip.end_date|date:"F jS" }} {% else %} TBA {% endif %}
     </p>
   </div>
 </a>
